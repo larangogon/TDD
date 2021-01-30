@@ -13,4 +13,9 @@ class Post extends Model
     {
         $this->attributes['name'] = strtolower($value);
     }
+
+    public function  getSlugAttribute($value)
+    {
+        return str_replace(' ', '-', $this->name);
+    }
 }
