@@ -20,3 +20,10 @@ Route::get('/', function () {
 Route::get('test', function () {
     return 'hola soy un test';
 });
+
+Route::view('profile', 'profile');
+
+Route::post('profile', function (Illuminate\Http\Request $request) {
+    $request->file('photo')->store('profiles');
+    return redirect('profile');
+});
